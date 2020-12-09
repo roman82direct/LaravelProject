@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    LARAVEL
+                    <p style="color: black">My first project on LARAVEL</p>
                 </div>
 
                 <div class="links">

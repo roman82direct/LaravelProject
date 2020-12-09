@@ -20,112 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67b7e0b4-d09c-4534-837b-8dc43cb3fc2d" name="Default Changelist" comment="add Framework">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.idea/laravel.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/.styleci.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Console/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Exceptions/Handler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/Authenticate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/TrustHosts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Providers/AppServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Providers/AuthServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Providers/EventServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Providers/RouteServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/artisan" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/bootstrap/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/broadcasting.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/cache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/cors.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/filesystems.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/hashing.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/logging.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/mail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/queue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/services.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/config/view.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/public/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/public/web.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/lang/en/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/lang/en/pagination.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/lang/en/passwords.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/lang/en/validation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/sass/app.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/api.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/channels.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/console.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/server.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/app/public/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/cache/data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/sessions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/testing/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/framework/views/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/storage/logs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/tests/CreatesApplication.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/tests/TestCase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/tests/Unit/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/webpack.mix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="DONT_SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
     <include_path>
@@ -241,12 +154,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../modules/php/PHP_7.3/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\OpenServer\domains\LaravelProject\resources\views" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -257,7 +177,9 @@
       <option name="presentableId" value="Default" />
       <updated>1607373146086</updated>
       <workItem from="1607373147524" duration="5000" />
-      <workItem from="1607373869053" duration="222000" />
+      <workItem from="1607373869053" duration="1460000" />
+      <workItem from="1607376913566" duration="3347000" />
+      <workItem from="1607502819058" duration="5319000" />
     </task>
     <servers />
   </component>
@@ -285,10 +207,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="162" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1607373907025" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607447869220">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607447869220" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607374070692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607374070692" />
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1607375339716">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
+    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1607375339716">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
+    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1607375339716">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
+    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1607375339716">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
     <state x="461" y="151" key="SettingsEditor" timestamp="1607374092581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
