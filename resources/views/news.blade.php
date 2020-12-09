@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../resources/css/style.css">
 
         <!-- Styles -->
         <style>
@@ -25,7 +26,7 @@
             }
 
             .flex-center {
-                align-items: center;
+                /*align-items: center;*/
                 display: flex;
                 justify-content: center;
             }
@@ -81,20 +82,27 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <p style="color: black">My first project on LARAVEL</p>
+                    <p style="color: black">NEWS</p>
                 </div>
-                <p>{{ $message }}</p>
 
                 <div class="links">
                     <a href="/public">Main</a>
                     <a href="/public/about">About</a>
-                    <a href="https://laravel-news.com">News</a>
+                    <a href="/public/news">News</a>
 {{--                    <a href="https://laracasts.com">Laracasts</a>--}}
 {{--                    <a href="https://blog.laravel.com">Blog</a>--}}
 {{--                    <a href="https://nova.laravel.com">Nova</a>--}}
 {{--                    <a href="https://forge.laravel.com">Forge</a>--}}
 {{--                    <a href="https://vapor.laravel.com">Vapor</a>--}}
 {{--                    <a href="https://github.com/laravel/laravel">GitHub</a>--}}
+                </div>
+                <div class="news">
+                    <h3>Новости берем здесь: {{ $site }}</h3>
+                    <ul>
+                        @foreach($news as $value)
+                            <li><a href="{{$value['link']}}">{{$value['title']}}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
