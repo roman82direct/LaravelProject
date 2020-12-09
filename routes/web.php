@@ -1,5 +1,5 @@
 <?php
-
+require $_SERVER['DOCUMENT_ROOT'] .'/app/Models/M_Parser.php';
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,27 +23,11 @@ Route::get('/about', function () {
 
 Route::get('/news', function () {
     $site = 'https://ria.ru/';
-    $html = file_get_contents($site);
+    $container = '.cell-list__list';
+    $link = 'a';
 
-    $doc = phpQuery::newDocument('<meta charset="utf-8">' . $html);
-    $newsItems = $doc->find('.cell-list__list');
+    $parse = new M_Parser($site, $container, $link);
+    $news = $parse->parse();
 
-    $news = array();
-    foreach ($newsItems as $newsItem) {
-
-        $newsElem = pq($newsItem)->find('a');
-
-        $title = $newsElem->text();
-        $link = $newsElem->attr('href');
-
-        if (strpos($link, $site) === false) {
-            $link = $site . $link;
-        }
-
-        array_push($news, array(
-            'title' => $title,
-            'link' => $link
-        ));
-    }
     return view('news', ['site'=>$site,'news'=>$news]);
 });
