@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67b7e0b4-d09c-4534-837b-8dc43cb3fc2d" name="Default Changelist" comment="news: parse done">
-      <change afterPath="$PROJECT_DIR$/app/Models/M_Parser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +52,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
@@ -172,10 +172,10 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../modules/php/PHP_7.3/php.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -196,7 +196,9 @@
       <workItem from="1607376913566" duration="3347000" />
       <workItem from="1607502819058" duration="9019000" />
       <workItem from="1607521225930" duration="707000" />
-      <workItem from="1607532281365" duration="13917000" />
+      <workItem from="1607532281365" duration="15154000" />
+      <workItem from="1607551033993" duration="650000" />
+      <workItem from="1607551716695" duration="1601000" />
     </task>
     <task id="LOCAL-00001" summary="news: parse done">
       <created>1607545504122</created>
@@ -210,6 +212,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="SHOW_OTHER_BRANCHES" value="true" />
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -230,50 +243,8 @@
     <MESSAGE value="news: parse done" />
     <option name="LAST_COMMIT_MESSAGE" value="news: parse done" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="540" y="174" key="#CLI_Interpreters" timestamp="1607374075561">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="174" key="#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040" timestamp="1607374075561" />
-    <state x="667" y="162" key="#PHP" timestamp="1607373907025">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="162" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1607373907025" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607447869220">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607447869220" />
-    <state x="738" y="431" width="443" height="269" key="ComposerInitDialogKey" timestamp="1607521269523">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="738" y="431" width="443" height="269" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1607521269523" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607374070692">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607374070692" />
-    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1607375339716">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
-    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1607375339716">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
-    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1607375339716">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
-    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1607375339716">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607375339716" />
-    <state x="698" y="242" key="NewPhpClassDialog" timestamp="1607545977555">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="698" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607545977555" />
-    <state x="461" y="151" key="SettingsEditor" timestamp="1607532482812">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607532482812" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
