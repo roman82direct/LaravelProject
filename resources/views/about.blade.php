@@ -81,14 +81,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    LARAVEL
+                    <p style="color: black">My first project on LARAVEL</p>
                 </div>
+                <p>{{ $message }}</p>
 
                 <div class="links">
                     <a href="/public">Main</a>
                     <a href="/public/about">About</a>
                     <a href="/public/news">News</a>
-                    {{--                    <a href="https://laracasts.com">Laracasts</a>--}}
+{{--                    <a href="https://laracasts.com">Laracasts</a>--}}
 {{--                    <a href="https://blog.laravel.com">Blog</a>--}}
 {{--                    <a href="https://nova.laravel.com">Nova</a>--}}
 {{--                    <a href="https://forge.laravel.com">Forge</a>--}}

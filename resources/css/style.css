@@ -1,0 +1,9 @@
+
+.news{
+    width: 60%;
+    margin: 0 auto;
+}
+.news li {
+    text-align: start;
+    margin-bottom: 10px;
+}
