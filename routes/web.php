@@ -22,7 +22,7 @@ Route::get('/', [
 ]);
 
 Route::get('/categories', [
-    'uses' => '\App\Http\Controllers\C_Welcome@index',
+    'uses' => '\App\Http\Controllers\C_Categories@index',
 
 ]);
 

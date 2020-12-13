@@ -45,7 +45,7 @@
             }
 
             .title {
-                font-size: 84px;
+                /*font-size: 84px;*/
             }
 
             .links > a {
@@ -79,14 +79,19 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="links">
-                    <a href="/public">Main</a>
-                    <a href="/public/categories">Categories</a>
-                </div>
+            <div class="links">
+                <a href="/public">Main</a>
+                <a href="/public/categories">Categories</a>
+            </div>
 
+            <div class="content">
                 <div class="title m-b-md">
-                    <p>{{$message}}</p>
+                    <ul>
+                        @foreach($categories as $value)
+                            <li><a href="public/categories/category_{{$value['id']}}">{{$value['discription']}}</a></li>
+                        @endforeach
+                    </ul>
+
                 </div>
 
             </div>
