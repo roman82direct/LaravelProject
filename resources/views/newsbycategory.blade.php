@@ -87,11 +87,10 @@
             <div class="content">
                 <div class="title m-b-md">
                     <ul>
-                        @foreach($categories as $value)
-                            <li><a href="public/categories/category_{{$value['id']}}">{{$value['discription']}}</a></li>
+                        @foreach($sortNews as $value)
+                            <li><a href="public/categories/category_1/item_{{$value['id']}}">{{$value['text']}}</a></li>
                         @endforeach
                     </ul>
-
 
                 </div>
 

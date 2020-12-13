@@ -18,15 +18,11 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', [
-    'uses' => '\App\Http\Controllers\C_Welcome@index',
+    'uses' => '\App\Http\Controllers\WelcomeController@index',
 ]);
 
-Route::get('/categories', [
-    'uses' => '\App\Http\Controllers\C_Categories@index',
+Route::get('/categories', '\App\Http\Controllers\CategoriesController@index');
 
-]);
 
-Route::get('/about', function () {
-    $about = 'Now create something great! Transitioning states is accomplished by defining the transition logic in a specific state machine.';
-    return view('about', ['message' => $about]);
-});
+Route::get('/categories/category_1', '\App\Http\Controllers\NewsController@index');
+//    ->name('news-categories');

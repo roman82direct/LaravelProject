@@ -42,18 +42,11 @@ class Controller extends BaseController
     ];
 
     public function getCategories(){
-//        foreach ($this->categories as $item){
-//            echo $item['id'].'; '.$item['title']. '; '.$item['discription']. '<br>';
-//        }
         return $this->categories;
     }
 
-    public function showNews($category){
-        foreach ($this->news as $item) {
-            if ($item['category'] == $category) {
-                echo $item['category'] . '/' . $item['id'] . ': <br>' . $item['text'] . '<hr>';
-            }
-        }
+    public function getNews(){
+        return $this->news;
     }
 
 }
