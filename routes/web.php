@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', [
+    'uses' => '\App\Http\Controllers\C_Welcome@index',
+]);
+
+Route::get('/categories', [
+    'uses' => '\App\Http\Controllers\C_Welcome@index',
+
+]);
+
+Route::get('/about', function () {
+    $about = 'Now create something great! Transitioning states is accomplished by defining the transition logic in a specific state machine.';
+    return view('about', ['message' => $about]);
 });
