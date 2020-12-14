@@ -88,7 +88,7 @@
                 <div class="title m-b-md">
                     <ul>
                         @foreach($categories as $value)
-                            <li><a href="public/categories/category_{{$value['id']}}">{{$value['discription']}}</a></li>
+                            <li><a href="categories/category_{{$value['id']}}">{{$value['discription']}}</a></li>
                         @endforeach
                     </ul>
 

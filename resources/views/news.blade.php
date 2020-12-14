@@ -88,7 +88,7 @@
                 <div class="title m-b-md">
                     <ul>
                         @foreach($sortNews as $value)
-                            <li><a href="public/categories/category_1/item_{{$value['id']}}">{{$value['text']}}</a></li>
+                            <li><a href="category_{{$category_Id}}/item_{{$value['id']}}">{{$value['text']}}</a></li>
                         @endforeach
                     </ul>
 

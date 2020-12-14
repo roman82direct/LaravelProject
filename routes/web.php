@@ -21,8 +21,7 @@ Route::get('/', [
     'uses' => '\App\Http\Controllers\WelcomeController@index',
 ]);
 
-Route::get('/categories', '\App\Http\Controllers\CategoriesController@index');
+Route::get('/categories', '\App\Http\Controllers\NewsController@index');
 
-
-Route::get('/categories/category_1', '\App\Http\Controllers\NewsController@index');
-//    ->name('news-categories');
+Route::get('/categories/category_{categoryId}', '\App\Http\Controllers\NewsController@showNews')
+    ->name('news');
