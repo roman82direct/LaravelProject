@@ -10,7 +10,7 @@ class NewsController extends Controller
         foreach ($this->getCategories() as $category){
             route('news', ['categoryId' => $category['id']]);
         }
-        return view('categories', ['categories' => $this->getCategories()]);
+        return view('newsCategories', ['categories' => $this->getCategories()]);
     }
 
     public function showNews($categoryId){

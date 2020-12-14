@@ -1,16 +1,16 @@
-@extends('base')
+@extends('layouts.base')
 
-@section('title', 'News')
+@section('title', 'News/'.$news_Id)
 
 @section('header')
-    @parent
-    <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>
+    @section('link')
+        <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>
 
 @endsection
 
 @section('content')
     <div class="title m-b-md">
-        <p>{{$category}}/Новость {{$news_Id}}:</p><br>
+        <p>{{$category}}/Новость {{$news_Id}}:</p>
         <p>{{$newsItem['text']}}</p>
     </div>
 @endsection
