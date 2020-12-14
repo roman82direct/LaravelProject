@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    padding: 0;!important;
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+}
+.menu{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+}
+.links{
+    display: flex;
+    justify-content: center;
+}
+.menu-links{
+
+    margin-left: 20px;
+    list-style-type: none;
+}
+.menu-links a{
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.container {
+    margin: 0 auto;
+    min-height: 100%;
+}
+.great{
+    font-size: 72px;
+    text-align: center;
+    margin-top: 10%;
+
+}
