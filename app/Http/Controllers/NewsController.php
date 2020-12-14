@@ -32,7 +32,7 @@ class NewsController extends Controller
         $categories = $this->getCategories();
         foreach ($categories as $item) {
             if ($item['id'] == $categoryId) {
-                $catItem = $item;
+                $catItem = $item['title'];
             }
         }
         $news = $this->getNews();
@@ -41,7 +41,6 @@ class NewsController extends Controller
                 $newsItem = $item;
             }
         }
-//        dd($sortNews);
         return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catItem, 'news_Id' => $itemId]);
     }
 }

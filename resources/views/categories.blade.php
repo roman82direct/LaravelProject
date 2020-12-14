@@ -80,9 +80,12 @@
             @endif
 
             <div class="links">
-                <a href="/public">Main</a>
-                <a href="/public/categories">Categories</a>
+                <a href="/public">Главная</a>
+                <a href="/public/categories">Категории новостей</a>
+                <a href="/public/signin">Авторизация</a>
+                <a href="/public/admin">Админка</a>
             </div>
+            <br>
 
             <div class="content">
                 <div class="title m-b-md">

@@ -79,18 +79,31 @@
                 </div>
             @endif
 
-            <div class="links">
-                <a href="/public">Главная</a>
-                <a href="/public/categories">Категории новостей</a>
-                <a href="/public/signin">Авторизация</a>
-                <a href="/public/admin">Админка</a>
-            </div>
+            <div class="content">
+                <div class="links">
+                    <a href="/public">Главная</a>
+                    <a href="/public/categories">Категории новостей</a>
+                    <a href="/public/signin">Авторизация</a>
+                    <a href="/public/admin">Админка</a>
+                </div>
                 <br>
 
-            <div class="content">
                 <div class="title m-b-md">
-                    <p>{{$category}}/Новость {{$news_Id}}:</p><br>
-                    <p>{{$newsItem['text']}}</p>
+                    <form class="logform" role="form" action="" method="" name="loginform">
+                        <div class="form-group">
+                            <label for="login">Логин</label>
+                            <input type="login" class="form-control" name="userlogin" id="login" placeholder="Login">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Пароль</label>
+                            <input type="password" class="form-control" name="userpassword" id="password" placeholder="Password">
+                        </div>
+
+                        <input type="checkbox" id="remember" name="subscribe" value="Запомнить меня">
+                        <label for="remember">Remember Me</label>
+
+                        <button type="submit" class="btn btn-default">Отправить</button>
+                    </form>
                 </div>
 
             </div>
