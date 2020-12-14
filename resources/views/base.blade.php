@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>@yield('title')</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../resources/css/style.css">
 
     </head>
 
     <body>
-        @section('menu')
+        @section('header')
             <div class="menu">
                 <ul class="links">
                     <li class="menu-links"><a href="/public">Главная</a></li>
@@ -26,6 +26,11 @@
 
         <div class="container">
             @yield('content')
+        </div>
+
+        <div class="footer">
+            <p>News Agregator</p>
+{{--            @yield('footer')--}}
         </div>
 
     </body>

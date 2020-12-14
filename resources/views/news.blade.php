@@ -1,104 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('base')
 
-        <title>Laravel</title>
+@section('title', 'News')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+@section('header')
+    @parent
+    <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+@endsection
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                /*align-items: center;*/
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                /*font-size: 84px;*/
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="links">
-                <a href="/public">Главная</a>
-                <a href="/public/categories">Категории новостей</a>
-                <a href="/public/signin">Авторизация</a>
-                <a href="/public/admin">Админка</a>
-                <a href="/public/addnews">Добавить новость</a>
-            </div>
-                <br>
-
-            <div class="content">
-                <div class="title m-b-md">
-                    <ul>
-                        @foreach($sortNews as $value)
-                            <li><a href="category_{{$category_Id}}/item_{{$value['id']}}">{{$value['text']}}</a></li>
-                        @endforeach
-                    </ul>
-
-                </div>
-
-            </div>
-        </div>
-    </body>
-</html>
+@section('content')
+    <ul class="categoryNews">
+            @foreach($sortNews as $value)
+                <li><a href="category_{{$category_Id}}/item_{{$value['id']}}">{{$value['text']}}</a></li>
+            @endforeach
+    </ul>
+@endsection
