@@ -6,7 +6,7 @@
 
         <title>@yield('title')</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../resources/css/style.css">
+        <link rel="stylesheet" href="../../../resources/css/style.css">
 
     </head>
 
