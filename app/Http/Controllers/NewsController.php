@@ -21,7 +21,27 @@ class NewsController extends Controller
                 array_push($sortNews, $item);
             }
         }
+        foreach ($sortNews as $item){
+            route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
+        }
 //        dd($sortNews);
         return view('news', ['sortNews' => $sortNews, 'category_Id' => $categoryId]);
+    }
+
+    public function showNewsItem($categoryId, $itemId){
+        $categories = $this->getCategories();
+        foreach ($categories as $item) {
+            if ($item['id'] == $categoryId) {
+                $catItem = $item;
+            }
+        }
+        $news = $this->getNews();
+        foreach ($news as $item) {
+            if ($item['id'] == $itemId){
+                $newsItem = $item;
+            }
+        }
+//        dd($sortNews);
+        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catItem, 'news_Id' => $itemId]);
     }
 }
