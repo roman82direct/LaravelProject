@@ -12,7 +12,7 @@
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/public/categories">Главная</a></li>
+            <li class="breadcrumb-item"><a href="/public/categories">Все категории</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{$catDiscr}}</li>
         </ol>
     </nav>

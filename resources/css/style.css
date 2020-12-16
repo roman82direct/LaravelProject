@@ -71,7 +71,11 @@ body {
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
 }
+/*bootstrap styles remake*/
 
+a:hover{
+    text-decoration: none;!important;
+}
 
 @media screen and (max-width: 1200px) {
     .menu{

@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function showNews($categoryId){
         $sortNews = (new Models\NewsModel()) -> getNewsByCategory($categoryId);
-        $catDiscription = (new Models\NewsModel()) ->getOneCategory($categoryId)['discription'];
+        $catDiscription = (new Models\NewsModel()) ->getOneCategory($categoryId)['title'];
         foreach ($sortNews as $item){
             route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
         }
