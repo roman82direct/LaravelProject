@@ -40,8 +40,43 @@ class NewsModel
         return $this->categories;
     }
 
+    public function getOneCategory($catId){
+        foreach ($this->categories as $category){
+            if($category['id'] == $catId){
+                $oneCategory = $category;
+            }
+        }
+        return $oneCategory;
+    }
+
     public function getNews(){
         return $this->news;
     }
 
+    public function getNewsByCategory($categoryId){
+        $sortNews = [];
+        foreach ($this->news as $item) {
+            if ($item['category_id'] == $categoryId){
+                array_push($sortNews, $item);
+            }
+        }
+        return $sortNews;
+    }
+
+    public function getNewsById($itemId){
+//        foreach ($this->getCategories() as $val) {
+//            if ($val['id'] == $categoryId) {
+//                $catItem = $val['title'];
+//            }
+//        }
+//        dd($this->getNewsByCategory(($categoryId)));
+//        dd($itemId);
+        foreach ($this->news as $item) {
+            if ($item['id'] == $itemId) {
+                $oneNews = $item;
+            }
+        }
+        return $oneNews;
+
+    }
 }

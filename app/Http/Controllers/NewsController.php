@@ -8,20 +8,15 @@ use App\Http\Models;
 class NewsController extends Controller
 {
     public function index(){
-        foreach ($this->getCategories() as $category){
+        $news = (new Models\NewsModel())->getCategories();
+        foreach ($news as $category){
             route('news', ['categoryId' => $category['id']]);
         }
-        return view('newsCategories', ['categories' => $this->getCategories()]);
+        return view('newsCategories', ['categories' => $news]);
     }
 
     public function showNews($categoryId){
-        $news = $this->getNews();
-        $sortNews = [];
-        foreach ($news as $item) {
-            if ($item['category_id'] == $categoryId){
-                array_push($sortNews, $item);
-            }
-        }
+        $sortNews = (new Models\NewsModel()) -> getNewsByCategory($categoryId);
         foreach ($sortNews as $item){
             route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
         }
@@ -30,18 +25,9 @@ class NewsController extends Controller
     }
 
     public function showNewsItem($categoryId, $itemId){
-        $categories = $this->getCategories();
-        foreach ($categories as $item) {
-            if ($item['id'] == $categoryId) {
-                $catItem = $item['title'];
-            }
-        }
-        $news = $this->getNews();
-        foreach ($news as $item) {
-            if ($item['id'] == $itemId){
-                $newsItem = $item;
-            }
-        }
-        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catItem, 'news_Id' => $itemId]);
+        $news = new Models\NewsModel();
+        $newsItem = $news->getNewsById($itemId);
+        $catTitle = $news->getOneCategory($categoryId)['title'];
+        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catTitle, 'news_Id' => $itemId]);
     }
 }
