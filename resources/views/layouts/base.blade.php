@@ -6,8 +6,8 @@
 
         <title>@yield('title')</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../../../node_modules/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../../resources/css/style.css">
-
     </head>
 
     <body>
@@ -16,7 +16,9 @@
         <div class="container">
             @yield('content')
         </div>
-
     @include('blocks/footer')
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="../../../node_modules/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

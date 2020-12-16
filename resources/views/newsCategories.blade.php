@@ -8,6 +8,11 @@
 @endsection
 
 @section('content')
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Все категории новостей</li>
+        </ol>
+    </nav>
         <ul class="categoryNews">
             @foreach($categories as $value)
                 <li><a href="categories/category_{{$value['id']}}">{{$value['discription']}}</a></li>
