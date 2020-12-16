@@ -64,13 +64,6 @@ class NewsModel
     }
 
     public function getNewsById($itemId){
-//        foreach ($this->getCategories() as $val) {
-//            if ($val['id'] == $categoryId) {
-//                $catItem = $val['title'];
-//            }
-//        }
-//        dd($this->getNewsByCategory(($categoryId)));
-//        dd($itemId);
         foreach ($this->news as $item) {
             if ($item['id'] == $itemId) {
                 $oneNews = $item;
