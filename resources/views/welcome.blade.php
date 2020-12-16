@@ -4,7 +4,6 @@
 
 @section('header')
     @parent
-
 @endsection
 
 @section('content')

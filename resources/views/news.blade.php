@@ -7,7 +7,6 @@
     <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>
 {{--    @parent--}}
 {{--    <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>--}}
-
 @endsection
 
 @section('content')
