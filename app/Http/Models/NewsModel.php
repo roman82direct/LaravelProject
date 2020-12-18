@@ -4,6 +4,8 @@
 namespace App\Http\Models;
 
 
+use Illuminate\Support\Facades\DB;
+
 class NewsModel
 {
     private $categories = [
@@ -35,6 +37,11 @@ class NewsModel
         ['id'=>19, 'category_id' => '5', 'text' => 'Канцлер Германии Ангела Меркель объявила о введении в Германии жесткого карантина...'],
         ['id'=>20, 'category_id' => '5', 'text' => '"АвтоВАЗ" полностью завершил выпуск автомобилей Datsun в России...'],
     ];
+
+    public function getCategoriesDB(){
+        $this->categories = DB::select('select * from news_categories');
+        return $this->categories;
+    }
 
     public function getCategories(){
         return $this->categories;

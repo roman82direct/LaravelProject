@@ -8,8 +8,12 @@ use App\Http\Models;
 class NewsController extends Controller
 {
     public function index(){
-        $news = (new Models\NewsModel())->getCategories();
-        foreach ($news as $category){
+
+        $news = (new Models\NewsModel())->getCategoriesDB();
+        dd($news);
+
+//        $news = (new Models\NewsModel())->getCategories();
+        foreach ($news as $key => $category){
             route('news', ['categoryId' => $category['id']]);
         }
         return view('newsCategories', ['categories' => $news]);
