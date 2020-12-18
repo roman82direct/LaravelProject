@@ -10,7 +10,7 @@ class NewsController extends Controller
     public function index(){
 
         $news = (new Models\NewsModel())->getCategories();
-        foreach ($news as $key => $category){
+        foreach ($news as $category){
             route('news', ['categoryId' => $category['id']]);
         }
         return view('newsCategories', ['categories' => $news]);
@@ -19,10 +19,10 @@ class NewsController extends Controller
     public function showNews($categoryId){
         $sortNews = (new Models\NewsModel()) -> getNewsByCategory($categoryId);
         $catDiscription = (new Models\NewsModel()) ->getOneCategory($categoryId)['title'];
+//        dd($sortNews);
         foreach ($sortNews as $item){
             route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
         }
-//        dd($sortNews);
         return view('news', ['sortNews' => $sortNews, 'category_Id' => $categoryId, 'catDiscr'=>$catDiscription]);
     }
 

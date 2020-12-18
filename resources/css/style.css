@@ -52,6 +52,7 @@ body {
 
 .categoryNews li{
     list-style-type: none;
+    margin-bottom: 20px;!important;
 }
 .categoryNews a{
     text-decoration: none;

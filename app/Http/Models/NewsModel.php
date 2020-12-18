@@ -13,8 +13,8 @@ class NewsModel
     private $news;
 
     public function getCategories(){
-        $stdClass = DB::select('select * from news_categories');
-        $this->categories = json_decode(json_encode($stdClass), true);
+        $std = DB::select('select * from news_categories');
+        $this->categories = json_decode(json_encode($std), true);
         return $this->categories;
     }
 
@@ -28,8 +28,8 @@ class NewsModel
     }
 
     public function getNews(){
-        $stdClass = DB::select('select * from news');
-        $this->news = json_decode(json_encode($stdClass), true);
+        $std = DB::select('select * from news');
+        $this->news = json_decode(json_encode($std), true);
         return $this->news;
     }
 
