@@ -14,6 +14,7 @@ body {
     color: #636b6f;!important;
     font-family: 'Nunito', sans-serif;!important;
 }
+
 /*menu - header*/
 .menu{
     width: 100%;
@@ -43,12 +44,6 @@ body {
     color: #636b6f;
 }
 
-.container {
-    padding: 40px 0;
-    margin: 0 auto;
-    min-height: 83%;
-/*    width: 75%;*!*/
-}
 .great{
     font-size: 72px;
     text-align: center;
@@ -73,9 +68,18 @@ body {
 }
 /*bootstrap styles remake*/
 
+.container {
+    padding: 40px 0;
+    margin: 0 auto;
+    min-height: 83%;
+    /*    width: 75%;*!*/
+}
+
 a:hover{
     text-decoration: none;!important;
 }
+
+/*@media*/
 
 @media screen and (max-width: 1200px) {
     .menu{
@@ -100,5 +104,4 @@ a:hover{
     .menu-links{
         margin-top: 20px;
     }
-
 }

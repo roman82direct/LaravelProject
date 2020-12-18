@@ -9,6 +9,10 @@
 @endsection
 
 @section('content')
+{{--    @php--}}
+{{--    dd($newsItem);--}}
+{{--    @endphp--}}
+
     <div class="title m-b-md">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
