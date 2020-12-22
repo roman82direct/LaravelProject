@@ -4,8 +4,13 @@
 
 @section('header')
     @section('link')
-        <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>
-        <li class="menu-links"><a href="/public/addnews">Удалить новость</a></li>
+        <li class="menu-links"><a href="/public/admin/addnews">Добавить новость</a></li>
+{{--        <li class="menu-links"><a href="/public/admin/delnews">Удалить новость</a></li>--}}
+        <form class="" action="{{route('admin::news::deleteNews')}}" method="POST">
+            @csrf
+            <input type="hidden" name="news[id]" value="{{$news_Id}}">
+            <button type="submit" class="btn">Удалить новость</button>
+        </form>
 
 @endsection
 

@@ -22,14 +22,42 @@ Route::get('/', [
 ]);
 
 //Админка
-Route::get('/admin', [
-    'uses' => '\App\Http\Controllers\Admin\NewsController@index',
-]);
+Route::group([
+    'prefix' => '/admin',
+    'as' => 'admin::news::',
+    'namespace' => '\App\Http\Controllers\Admin\News'
+], function () {
+    Route::get('/admin', 'NewsController@index')
+        ->name('index');
 
-//Авторизация
+//Страница формы для добавления новости
+    Route::get('/addnews', 'NewsController@addNews')
+        ->name('addNews');
+//Страница результата добавления новости
+    Route::post('/addnews', 'NewsController@createNews')
+        ->name('createNews');
+//Страница удаления новости
+    Route::post('/delnews', 'NewsController@deleteNews')
+        ->name('deleteNews');
+
+});
+
+
+
+
+//Route::get('admin/admin', [
+//    'uses' => '\App\Http\Controllers\Admin\News\NewsController@index',
+//]);
+////Страница добавления новости
+//Route::get('admin/addnews', '\App\Http\Controllers\Admin\News\NewsController@addNews')
+//    ->name('addNews');
+
+
+//User Авторизация
 Route::get('/signin', [
     'uses' => '\App\Http\Controllers\UserController@index',
 ]);
+
 
 //Страница категорий новостей
 Route::get('/categories', '\App\Http\Controllers\NewsController@index');
@@ -37,9 +65,6 @@ Route::get('/categories', '\App\Http\Controllers\NewsController@index');
 //Страница вывода новостей по категории
 Route::get('/categories/category_{categoryId}', '\App\Http\Controllers\NewsController@showNews')
     ->name('news');
-
-//Страница добавления новости
-Route::get('/addnews', '\App\Http\Controllers\Admin\NewsController@addNews');
 
 //Страница вывода отдельной новости
 Route::get('/categories/category_{categoryId}/item_{itemId}', '\App\Http\Controllers\NewsController@showNewsItem')

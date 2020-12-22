@@ -4,7 +4,7 @@
 
 @section('header')
 @section('link')
-    <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>
+    <li class="menu-links"><a href="/public/admin/addnews">Добавить новость</a></li>
 {{--    @parent--}}
 {{--    <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>--}}
 @endsection

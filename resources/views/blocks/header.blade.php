@@ -8,7 +8,7 @@
             </ul>
 
             <ul class="links">
-                <li class="menu-links"><a href="/public/admin">Админка</a></li>
+                <li class="menu-links"><a href="/public/admin/admin">Админка</a></li>
             </ul>
         </div>
 
