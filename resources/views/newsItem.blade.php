@@ -6,11 +6,6 @@
     @section('link')
         <li class="menu-links"><a href="/public/admin/addnews">Добавить новость</a></li>
 {{--        <li class="menu-links"><a href="/public/admin/delnews">Удалить новость</a></li>--}}
-        <form class="" action="{{route('admin::news::deleteNews')}}" method="POST">
-            @csrf
-            <input type="hidden" name="news[id]" value="{{$news_Id}}">
-            <button type="submit" class="btn">Удалить новость</button>
-        </form>
 
 @endsection
 
@@ -28,5 +23,11 @@
             </ol>
         </nav>
         <p>{{$newsItem['text']}}</p>
+        <a class="btn btn-primary" href="/public/admin/delnews?id={{$news_Id}}">Удалить новость</a>
+{{--        <form class="" action="{{route('admin::news::deleteNews')}}" method="POST">--}}
+{{--            @csrf--}}
+{{--            <input type="hidden" name="news_id" value="{{$news_Id}}">--}}
+{{--            <button type="submit" class="btn btn-primary">Удалить новость</button>--}}
+{{--        </form>--}}
     </div>
 @endsection

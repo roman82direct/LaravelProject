@@ -18,7 +18,7 @@
     </nav>
     <ul class="categoryNews">
             @foreach($sortNews as $value)
-                <li><a href="category_{{$category_Id}}/item_{{$value['id']}}">{{$value['text']}}</a></li>
+                <li><a href="category_{{$category_Id}}/item_{{$value['id']}}">{{$value['title']}}</a></li>
             @endforeach
     </ul>
 @endsection

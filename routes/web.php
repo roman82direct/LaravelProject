@@ -29,6 +29,7 @@ Route::group([
 ], function () {
     Route::get('/admin', 'NewsController@index')
         ->name('index');
+//Страница формы для добавления категории новостей
 
 //Страница формы для добавления новости
     Route::get('/addnews', 'NewsController@addNews')
@@ -37,21 +38,16 @@ Route::group([
     Route::post('/addnews', 'NewsController@createNews')
         ->name('createNews');
 //Страница удаления новости
-    Route::post('/delnews', 'NewsController@deleteNews')
+    Route::get('/delnews', 'NewsController@deleteNews')
         ->name('deleteNews');
+//    Route::match(['GET', 'POST'], '/delnews', 'NewsController@deleteNews')
+//        ->name('deleteNews');
+
+//  Открытие формы и создание категории
+    Route::match(['GET', 'POST'], '/addcategory', 'NewsController@createCategory')
+    ->name('createCategory');
 
 });
-
-
-
-
-//Route::get('admin/admin', [
-//    'uses' => '\App\Http\Controllers\Admin\News\NewsController@index',
-//]);
-////Страница добавления новости
-//Route::get('admin/addnews', '\App\Http\Controllers\Admin\News\NewsController@addNews')
-//    ->name('addNews');
-
 
 //User Авторизация
 Route::get('/signin', [

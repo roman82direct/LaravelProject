@@ -10,7 +10,8 @@ use App\Http\Models;
 class NewsController extends Controller
 {
     public function index(){
-        return view('admin/admin', ['message' => 'Welcome, Admin']);
+        $content = view('admin/admin', ['message' => 'Welcome, Admin']);
+        return $content;
     }
 
     public function addNews(){
@@ -19,19 +20,34 @@ class NewsController extends Controller
     }
 
     public function createNews(Request $request){
-        $categories = (new Models\NewsModel())->getCategories();
         $arrNews = $request->request->all()['news'];
         $sql = (new Models\Admin\NewsModel())->addNews($arrNews['category'], $arrNews['title'], $arrNews['discription']);
-//        dd($sql);
         if ($sql){
-            return view('admin/adminAddNews', ['categories' => $categories, 'message' => 'Новость опубликована!!!']);
+            $content = view('admin/admin', ['message' => 'Новость опубликована', 'action'=> 1]);
         }
-        else return view('admin/adminAddNews', ['categories' => $categories, 'message' => 'Ошибка публикации!!!']);
+        else {
+            $content = view('admin/admin', ['message' => 'Ошибка публикации', 'action' => 1]);
+        }
+//        Передаем заголовки
+        $headers = response($content)->header('newNews', [$arrNews['category'], $arrNews['title'], $arrNews['discription']]);
+//        dump($headers);
+        return $content;
     }
 
     public function deleteNews(Request $request){
-        $arrNews = $request->request->all()['news'];
-        (new Models\Admin\NewsModel())->delNews($arrNews['id']);
-        return view('admin/admin', ['message' => 'Новость удалена']);
+        $newsId = $request->query('id');
+//        dd($arrNews);
+        (new Models\Admin\NewsModel())->delNews($newsId);
+        return view('admin/admin', ['message' => 'Новость удалена', 'action'=> 1]);
+    }
+
+    public function createCategory(Request $request){
+        if ($request->isMethod('GET')){
+            return view('admin/adminAddCategory');
+        } else {
+            $newCat = $request->all();
+            (new Models\Admin\NewsModel())->addCategory($newCat['title'], $newCat['discr']);
+            return view('admin/admin', ['message' => 'Категория "'.$newCat['title'].'" успешно добавлена', 'action' => 1]);
+        }
     }
 }

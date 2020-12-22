@@ -7,9 +7,11 @@
                 <li class="menu-links"><a href="/public/signin">Авторизация</a></li>
             </ul>
 
+{{--            @if($admin ?? '')--}}
             <ul class="links">
                 <li class="menu-links"><a href="/public/admin/admin">Админка</a></li>
             </ul>
+{{--            @endif--}}
         </div>
 
         <div class="downnav">

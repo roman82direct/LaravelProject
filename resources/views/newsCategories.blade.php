@@ -3,7 +3,9 @@
 @section('title', 'Categories')
 
 @section('header')
-    @parent
+@section('link')
+    <li class="menu-links"><a href="/public/admin/addcategory">Добавить категорию новостей</a></li>
+    {{--        <li class="menu-links"><a href="/public/admin/delnews">Удалить новость</a></li>--}}
 
 @endsection
 
