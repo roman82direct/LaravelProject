@@ -5,6 +5,7 @@
 @section('header')
     @section('link')
         <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>
+        <li class="menu-links"><a href="/public/addnews">Удалить новость</a></li>
 
 @endsection
 
