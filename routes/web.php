@@ -51,7 +51,8 @@ Route::group([
 Route::get('user/signin', [
     'uses' => '\App\Http\Controllers\UserController@index',
 ]);
-Route::match(['GET', 'POST'], '/savenews', '\App\Http\Controllers\NewsController@saveNews')
+
+Route::match(['GET', 'POST'], '/downloadnews', '\App\Http\Controllers\NewsController@downloadNews')
     ->name('saveNewsToFile');
 
 

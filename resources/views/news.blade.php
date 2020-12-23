@@ -4,7 +4,7 @@
 
 @section('header')
 @section('link')
-    <li class="menu-links"><a href="/public/admin/addnews">Добавить новость</a></li>
+{{--    <li class="menu-links"><a href="/public/admin/addnews">Добавить новость</a></li>--}}
 {{--    @parent--}}
 {{--    <li class="menu-links"><a href="/public/addnews">Добавить новость</a></li>--}}
 @endsection
@@ -21,4 +21,6 @@
                 <li><a href="category_{{$category_Id}}/item_{{$value['id']}}">{{$value['title']}}</a></li>
             @endforeach
     </ul>
+
+    <a class="btn btn-primary"  href="/public/admin/addnews">Добавить новость</a>
 @endsection

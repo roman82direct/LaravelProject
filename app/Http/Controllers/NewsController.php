@@ -29,23 +29,18 @@ class NewsController extends Controller
     public function showNewsItem($categoryId, $itemId){
         $news = new Models\NewsModel();
         $newsItem = $news->getNewsById($itemId);
-        $catTitle = $news->getOneCategory($categoryId)['title'];
-        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catTitle, 'categoryId'=>$categoryId, 'news_Id' => $itemId]);
+        $catTitle = $news->getOneCategory($newsItem['category_id'])['title'];
+        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catTitle, 'categoryId'=>$newsItem['category_id'], 'news_Id' => $itemId]);
     }
-    public function saveNews(Request $request){
+    public function downloadNews(Request $request){
         if ($request->isMethod('get')){
             return view('user/userSaveRequest', ['news_Id'=>$request->all()['news_id']]);
         } else {
-            dump($request->all());
-            file_put_contents('data.txt', $request->all()['req']);
-            $content = $this->index();
-//            dd(response($content));
-            return response($content)
-                ->header('Content-Type', 'application/txt')
-                ->header('Content-Length', mb_strlen($content))
-                ->header('Content-Disposition', 'attachment; filename="data.txt"')
-                ->header('test', 'TEST');
-//                ->download('data.txt');
+            $file = 'userdata/data.txt';
+            file_put_contents($file, $request->all()['req']);
+//            $content = $this->index();
+//            redirect('/categories');
+            return response()->download($file);
         }
     }
 }
