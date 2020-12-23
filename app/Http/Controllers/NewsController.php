@@ -32,4 +32,20 @@ class NewsController extends Controller
         $catTitle = $news->getOneCategory($categoryId)['title'];
         return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catTitle, 'categoryId'=>$categoryId, 'news_Id' => $itemId]);
     }
+    public function saveNews(Request $request){
+        if ($request->isMethod('get')){
+            return view('user/userSaveRequest', ['news_Id'=>$request->all()['news_id']]);
+        } else {
+            dump($request->all());
+            file_put_contents('data.txt', $request->all()['req']);
+            $content = $this->index();
+//            dd(response($content));
+            return response($content)
+                ->header('Content-Type', 'application/txt')
+                ->header('Content-Length', mb_strlen($content))
+                ->header('Content-Disposition', 'attachment; filename="data.txt"')
+                ->header('test', 'TEST');
+//                ->download('data.txt');
+        }
+    }
 }

@@ -5,6 +5,7 @@
 @section('header')
     @section('link')
         <li class="menu-links"><a href="/public/admin/addnews">Добавить новость</a></li>
+{{--        <li class="menu-links"><a href="/public/savenews">Сохранить новость в файл</a></li>--}}
 {{--        <li class="menu-links"><a href="/public/admin/delnews">Удалить новость</a></li>--}}
 
 @endsection
@@ -24,6 +25,7 @@
         </nav>
         <p>{{$newsItem['text']}}</p>
         <a class="btn btn-primary" href="/public/admin/delnews?id={{$news_Id}}">Удалить новость</a>
+        <a class="btn btn-primary" href="/public/savenews?news_id={{$news_Id}}">Сохранить новость в файл</a>
 {{--        <form class="" action="{{route('admin::news::deleteNews')}}" method="POST">--}}
 {{--            @csrf--}}
 {{--            <input type="hidden" name="news_id" value="{{$news_Id}}">--}}

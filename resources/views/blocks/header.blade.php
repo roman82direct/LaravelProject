@@ -4,7 +4,7 @@
             <ul class="links mainnav">
                 <li class="menu-links"><a href="/public">Главная</a></li>
                 <li class="menu-links"><a href="/public/categories">Категории новостей</a></li>
-                <li class="menu-links"><a href="/public/signin">Авторизация</a></li>
+                <li class="menu-links"><a href="/public/user/signin">Авторизация</a></li>
             </ul>
 
 {{--            @if($admin ?? '')--}}

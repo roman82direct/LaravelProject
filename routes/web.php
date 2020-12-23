@@ -40,19 +40,19 @@ Route::group([
 //Страница удаления новости
     Route::get('/delnews', 'NewsController@deleteNews')
         ->name('deleteNews');
-//    Route::match(['GET', 'POST'], '/delnews', 'NewsController@deleteNews')
-//        ->name('deleteNews');
 
-//  Открытие формы и создание категории
+//  Открытие формы и создание новостной категории
     Route::match(['GET', 'POST'], '/addcategory', 'NewsController@createCategory')
     ->name('createCategory');
 
 });
 
 //User Авторизация
-Route::get('/signin', [
+Route::get('user/signin', [
     'uses' => '\App\Http\Controllers\UserController@index',
 ]);
+Route::match(['GET', 'POST'], '/savenews', '\App\Http\Controllers\NewsController@saveNews')
+    ->name('saveNewsToFile');
 
 
 //Страница категорий новостей
