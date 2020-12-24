@@ -43,8 +43,8 @@ class NewsController extends Controller {
         } else {
             $file = 'userdata/data.txt';
             file_put_contents($file, $request->all()['req']);
-//            $content = $this->index();
-            redirect()->route('welcome'); //не работает
+            redirect()->route('welcome'); // не работает (как реализовать одновременное скачивание файла и редирект на другую страницу?)
+//            dd(response());
             return response()->download($file);
         }
     }
