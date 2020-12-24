@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', [
-    'uses' => '\App\Http\Controllers\WelcomeController@index',
-]);
+    'uses' => '\App\Http\Controllers\NewsController@welcome',
+])
+    ->name('welcome');
 
 //Админка
 Route::group([
@@ -29,7 +30,6 @@ Route::group([
 ], function () {
     Route::get('/admin', 'NewsController@index')
         ->name('index');
-//Страница формы для добавления категории новостей
 
 //Страница формы для добавления новости
     Route::get('/addnews', 'NewsController@addNews')
@@ -51,7 +51,7 @@ Route::group([
 Route::get('user/signin', [
     'uses' => '\App\Http\Controllers\UserController@index',
 ]);
-
+// User запрос на скачивание файла
 Route::match(['GET', 'POST'], '/downloadnews', '\App\Http\Controllers\NewsController@downloadNews')
     ->name('saveNewsToFile');
 

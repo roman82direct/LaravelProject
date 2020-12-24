@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Models;
 
-class NewsController extends Controller
-{
+class NewsController extends Controller {
+
+    public function welcome(){
+    return view('welcome', ['message' => 'Welcome to News Agregator!']);
+}
+
     public function index(){
 
         $news = (new Models\NewsModel())->getCategories();
@@ -17,8 +21,9 @@ class NewsController extends Controller
     }
 
     public function showNews($categoryId){
-        $sortNews = (new Models\NewsModel()) -> getNewsByCategory($categoryId);
-        $catDiscription = (new Models\NewsModel()) ->getOneCategory($categoryId)['title'];
+        $news = new Models\NewsModel();
+        $sortNews = $news->getNewsByCategory($categoryId);
+        $catDiscription = $news->getOneCategory($categoryId)['title'];
 //        dd($sortNews);
         foreach ($sortNews as $item){
             route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
@@ -30,7 +35,7 @@ class NewsController extends Controller
         $news = new Models\NewsModel();
         $newsItem = $news->getNewsById($itemId);
         $catTitle = $news->getOneCategory($newsItem['category_id'])['title'];
-        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catTitle, 'categoryId'=>$newsItem['category_id'], 'news_Id' => $itemId]);
+        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catTitle, 'categoryId'=>$categoryId, 'news_Id' => $itemId]);
     }
     public function downloadNews(Request $request){
         if ($request->isMethod('get')){
@@ -39,7 +44,7 @@ class NewsController extends Controller
             $file = 'userdata/data.txt';
             file_put_contents($file, $request->all()['req']);
 //            $content = $this->index();
-//            redirect('/categories');
+            redirect()->route('welcome'); //не работает
             return response()->download($file);
         }
     }
