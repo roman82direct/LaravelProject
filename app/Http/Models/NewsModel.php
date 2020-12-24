@@ -6,6 +6,9 @@ namespace App\Http\Models;
 use Illuminate\Support\Facades\DB;
 
 class NewsModel
+/*
+ * TODO check 'facade root has not been set'  through test
+*/
 {
     private $categories;
 

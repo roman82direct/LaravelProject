@@ -24,7 +24,6 @@ class NewsController extends Controller {
         $news = new Models\NewsModel();
         $sortNews = $news->getNewsByCategory($categoryId);
         $catDiscription = $news->getOneCategory($categoryId)['title'];
-//        dd($sortNews);
         foreach ($sortNews as $item){
             route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
         }
