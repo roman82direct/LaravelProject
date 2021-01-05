@@ -40,6 +40,9 @@ Route::group([
 //Страница удаления новости
     Route::get('/delnews', 'NewsController@deleteNews')
         ->name('deleteNews');
+//Страница редактирования новости
+    Route::match(['GET', 'POST'], '/editnews', 'NewsController@editNews')
+        ->name('editNews');
 
 //  Открытие формы и создание новостной категории
     Route::match(['GET', 'POST'], '/addcategory', 'NewsController@createCategory')

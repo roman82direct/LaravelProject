@@ -34,9 +34,20 @@ class NewsController extends Controller
         return $content;
     }
 
+    public function editNews(Request $request)
+    {
+        if ($request->isMethod('GET')) {
+            $news = Models\News::query()->where('id', $request->query('id'));
+            return view('admin/editNews', ['newsId' => $news->value('id'), 'title' => $news->value('title'), 'text' => $news->value('text')]);
+        } else {
+            $news = $request->all();
+            (new Models\Admin\NewsModel())->editNews($news['id'], $news['title'], $news['text']);
+            return view('admin/admin', ['message' => 'Новость с id='.$news['id'].' успешно изменена', 'action' => 1]);
+        }
+    }
+
     public function deleteNews(Request $request){
         $newsId = $request->query('id');
-//        dd($arrNews);
         (new Models\Admin\NewsModel())->delNews($newsId);
         return view('admin/admin', ['message' => 'Новость удалена', 'action'=> 1]);
     }

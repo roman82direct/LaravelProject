@@ -3,6 +3,8 @@
 
 namespace App\Http\Models\Admin;
 
+use App\Http\Models;
+use App\Http\Models\News;
 use Illuminate\Support\Facades\DB;
 
 class NewsModel
@@ -14,6 +16,13 @@ class NewsModel
             'txt' => $text
         ]);
         return $sql;
+    }
+
+    public function editNews($newsId, $title, $text){
+        $news = News::query()
+            ->where('id', $newsId)
+            ->update(['title'=>$title, 'text'=>$text]);
+        return $news;
     }
 
     public function delNews($newsId){
