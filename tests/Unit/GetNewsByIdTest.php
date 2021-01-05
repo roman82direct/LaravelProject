@@ -15,7 +15,7 @@ class GetNewsByIdTest extends TestCase
      */
     public function testExample()
         /*
-         * TODO "RuntimeException : A facade root has not been set." Разобраться с этим при настройке DB
+         * TODO "RuntimeException : A facade root has not been set." Разобраться с этим
          */
     {
         $model = new Models\NewsModel();

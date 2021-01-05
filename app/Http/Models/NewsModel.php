@@ -15,7 +15,10 @@ class NewsModel
     private $news;
 
     public function getCategories(){
-        $std = DB::select('select * from news_categories');
+        $std = DB::table('news_categories')->get();
+//        $std = DB::select('select * from news_categories');
+//        $this->categories = $std->toArray();
+//        dd($this->categories);
         $this->categories = json_decode(json_encode($std), true);
         return $this->categories;
     }
@@ -52,6 +55,5 @@ class NewsModel
             }
         }
         return $oneNews;
-
     }
 }

@@ -67,3 +67,5 @@ Route::get('/categories/category_{categoryId}', '\App\Http\Controllers\NewsContr
 Route::get('/categories/category_{categoryId}/item_{itemId}', '\App\Http\Controllers\NewsController@showNewsItem')
     ->name('news-item');
  //    ->where('itemId', '[0-9]+');;
+
+Route::get('/db', '\App\Http\Controllers\DbController@index');

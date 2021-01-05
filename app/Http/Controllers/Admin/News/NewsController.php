@@ -29,7 +29,7 @@ class NewsController extends Controller
             $content = view('admin/admin', ['message' => 'Ошибка публикации', 'action' => 1]);
         }
 //        Передаем заголовки
-        $headers = response($content)->header('newNews', [$arrNews['category'], $arrNews['title'], $arrNews['discription']]);
+//        $headers = response($content)->header('newNews', [$arrNews['category'], $arrNews['title'], $arrNews['discription']]);
 //        dump($headers);
         return $content;
     }

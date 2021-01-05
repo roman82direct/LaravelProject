@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class NewsModel
 {
     public function addNews($categoryId, $title, $text){
-        $sql = DB::insert('INSERT INTO `news`(`category_id`, `title`, `text`) VALUES (:categoryId, :title, :txt)', [
+        $sql = DB::insert('INSERT INTO `news`(`category_id`, `title`, `source_id`, `text`) VALUES (:categoryId, :title, 1, :txt)', [
             'categoryId' => $categoryId,
             'title' => $title,
             'txt' => $text
@@ -22,7 +22,7 @@ class NewsModel
     }
 
     public function addCategory($title, $text){
-        $sql = DB::insert('INSERT INTO `news_categories`(`title`, `discription`) VALUES (?, ?)', [$title, $text]);
+        $sql = DB::insert('INSERT INTO `news_categories`(`title`, `description`) VALUES (?, ?)', [$title, $text]);
         return $sql;
     }
 }
