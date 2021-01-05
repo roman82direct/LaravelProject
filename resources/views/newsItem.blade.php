@@ -20,7 +20,8 @@
                 <li class="breadcrumb-item active" aria-current="page">Новость {{$news_Id}}</li>
             </ol>
         </nav>
-        <p>{{$newsItem['text']}}</p>
+        <p>{{$newsItem}}</p>
+        <a class="btn btn-primary" href="/public/admin/editnews?id={{$news_Id}}">Редактировать новость</a>
         <a class="btn btn-primary" href="/public/admin/delnews?id={{$news_Id}}">Удалить новость</a>
         <a class="btn btn-primary" href="/public/downloadnews?news_id={{$news_Id}}">Сохранить новость в файл</a>
     </div>

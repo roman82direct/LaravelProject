@@ -12,18 +12,22 @@ class NewsController extends Controller {
 }
 
     public function index(){
-
-        $news = (new Models\NewsModel())->getCategories();
-        foreach ($news as $category){
+//        $categories = Models\NewsCategories::all();
+        $categories = (new Models\NewsModel())->getCategories();
+        foreach ($categories as $category){
             route('news', ['categoryId' => $category['id']]);
         }
-        return view('newsCategories', ['categories' => $news]);
+        return view('newsCategories', ['categories' => $categories]);
     }
 
     public function showNews($categoryId){
-        $news = new Models\NewsModel();
-        $sortNews = $news->getNewsByCategory($categoryId);
-        $catDiscription = $news->getOneCategory($categoryId)['title'];
+        $sortNews = Models\News::query()
+            ->where('category_id', $categoryId)
+            ->get();
+        $catDiscription = Models\NewsCategories::query()
+            ->where('id', $categoryId)
+            ->value('title');
+
         foreach ($sortNews as $item){
             route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
         }
@@ -31,10 +35,18 @@ class NewsController extends Controller {
     }
 
     public function showNewsItem($categoryId, $itemId){
-        $news = new Models\NewsModel();
-        $newsItem = $news->getNewsById($itemId);
-        $catTitle = $news->getOneCategory($newsItem['category_id'])['title'];
-        return view('newsItem', ['newsItem' => $newsItem, 'category'=>$catTitle, 'categoryId'=>$categoryId, 'news_Id' => $itemId]);
+//        $news = new Models\NewsModel();
+//        $newsItem = $news->getNewsById($itemId);
+//        $catTitle = $news->getOneCategory($newsItem['category_id'])['title'];
+
+        $newsItemText = Models\News::query()
+            ->where('id', $itemId)
+            ->value('text');
+        $catTitle = Models\NewsCategories::query()
+            ->where('id', $categoryId)
+            ->value('title');
+
+        return view('newsItem', ['newsItem' => $newsItemText, 'category'=>$catTitle, 'categoryId'=>$categoryId, 'news_Id' => $itemId]);
     }
     public function downloadNews(Request $request){
         if ($request->isMethod('get')){

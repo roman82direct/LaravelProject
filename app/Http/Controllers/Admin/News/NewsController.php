@@ -15,7 +15,7 @@ class NewsController extends Controller
     }
 
     public function addNews(){
-        $categories = (new Models\NewsModel())->getCategories();
+        $categories = Models\NewsCategories::all();
         return view('admin/adminAddNews', ['categories' => $categories, 'message'=>'']);
     }
 
