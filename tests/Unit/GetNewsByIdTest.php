@@ -15,11 +15,11 @@ class GetNewsByIdTest extends TestCase
      */
     public function testExample()
         /*
-         * TODO "RuntimeException : A facade root has not been set." Разобраться с этим
+         * TODO "Error : Call to a member function connection() on null" Разобраться с этим
          */
     {
         $model = new Models\NewsModel();
-        $data = $model->getNewsById(1);
+        $data = $model->getNewsById(1)->get();
         $this->assertIsArray($data);
         $this->assertNotEmpty($data);
         $this->assertEquals('1', $data['category_id']);

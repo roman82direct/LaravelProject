@@ -19,19 +19,24 @@ class NewsModel
     }
 
     public function editNews($newsId, $title, $text){
-        $news = News::query()
+        $news = News::query()                       //Eloquent ORM
             ->where('id', $newsId)
             ->update(['title'=>$title, 'text'=>$text]);
         return $news;
     }
 
     public function delNews($newsId){
-        $sql = DB::delete('DELETE FROM `news` WHERE `id` = :id', ['id'=>$newsId]);
+        $sql = News::query()
+            ->where('id', $newsId)
+            ->delete();
+//        $sql = DB::delete('DELETE FROM `news` WHERE `id` = :id', ['id'=>$newsId]);
         return $sql;
     }
 
     public function addCategory($title, $text){
-        $sql = DB::insert('INSERT INTO `news_categories`(`title`, `description`) VALUES (?, ?)', [$title, $text]);
+        $sql = Models\NewsCategories::query()
+            ->insert(['title'=>$title, 'description'=>$text]);
+//        $sql = DB::insert('INSERT INTO `news_categories`(`title`, `description`) VALUES (?, ?)', [$title, $text]);
         return $sql;
     }
 }

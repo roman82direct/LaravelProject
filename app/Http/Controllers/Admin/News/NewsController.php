@@ -38,7 +38,11 @@ class NewsController extends Controller
     {
         if ($request->isMethod('GET')) {
             $news = Models\News::query()->where('id', $request->query('id'));
-            return view('admin/editNews', ['newsId' => $news->value('id'), 'title' => $news->value('title'), 'text' => $news->value('text')]);
+            return view('admin/editNews', [
+                'newsId' => $news->value('id'),
+                'title' => $news->value('title'),
+                'text' => $news->value('text')
+            ]);
         } else {
             $news = $request->all();
             (new Models\Admin\NewsModel())->editNews($news['id'], $news['title'], $news['text']);

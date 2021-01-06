@@ -7,50 +7,41 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Models;
 
 class NewsModel
-/*
- * TODO check 'facade root has not been set'  through test
-*/
 {
-    private $categories;
-
-    private $news;
-
     public function getCategories(){
-        $this->categories = Models\NewsCategories::all();
-        return $this->categories;
+        $categories = NewsCategories::all();
+        foreach ($categories as $item){
+            route('news', ['categoryId' => $item['id']]);
+        }
+        return $categories;
     }
 
-//    public function getOneCategory($catId){
-//        foreach ($this->getCategories() as $key => $category){
-//            if($category['id'] == $catId){
-//                $oneCategory = $category;
-//            }
-//        }
-//        return $oneCategory;
-//    }
+    public function getOneCategory($catId){
+        $categoryItem = NewsCategories::query()
+            ->where('id', $catId);
+//            ->get();
+        return $categoryItem;
+    }
 
-//    public function getNews(){
-//        $std = DB::select('select * from news');
-//        $this->news = json_decode(json_encode($std), true);
-//        return $this->news;
-//    }
-//
-//    public function getNewsByCategory($categoryId){
-//        $sortNews = [];
-//        foreach ($this->getNews() as $key => $item) {
-//            if ($item['category_id'] == $categoryId){
-//                array_push($sortNews, $item);
-//            }
-//        }
-//        return $sortNews;
-//    }
-//
-//    public function getNewsById($itemId){
-//        foreach ($this->getNews() as $key => $item) {
-//            if ($item['id'] == $itemId) {
-//                $oneNews = $item;
-//            }
-//        }
-//        return $oneNews;
-//    }
+    public function getNews(){
+        $news = News::all();
+        return $news;
+    }
+
+    public function getNewsByCategory($categoryId){
+        $sortNews = News::query()
+            ->where('category_id', $categoryId)
+            ->get();
+        foreach ($sortNews as $item){
+            route('news-item', ['itemId' => $item['id'], 'categoryId' => $categoryId]);
+        }
+        return $sortNews;
+    }
+
+    public function getNewsById($itemId){
+        $newsItem = News::query()
+            ->where('id', $itemId);
+//            ->get();
+        return $newsItem;
+    }
 }
