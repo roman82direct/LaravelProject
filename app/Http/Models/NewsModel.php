@@ -11,15 +11,21 @@ class NewsModel
     public function getCategories(){
         $categories = NewsCategories::all();
         foreach ($categories as $item){
+//            dump($item->title);
             route('news', ['categoryId' => $item['id']]);
         }
         return $categories;
     }
 
-    public function getOneCategory($catId){
+    public function getCategoryById($catId){
+//        $categoryItem = NewsCategories::query()
+//            ->find($catId);
         $categoryItem = NewsCategories::query()
             ->where('id', $catId);
 //            ->get();
+        foreach ($categoryItem as $item){
+            dump($item->title);
+        }
         return $categoryItem;
     }
 

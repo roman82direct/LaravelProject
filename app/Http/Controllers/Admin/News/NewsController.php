@@ -10,7 +10,16 @@ use App\Http\Models;
 class NewsController extends Controller
 {
     public function index(){
-        $content = view('admin/admin', ['message' => 'Welcome, Admin']);
+        $news = Models\News::all();
+        $categories = Models\NewsCategories::all();
+        $sources = Models\Source::all();
+        $content = view('admin/admin', [
+            'message' => 'Админка',
+            'news' => $news,
+            'categories' => $categories,
+            'sources' => $sources,
+            'action'=> 0
+        ]);
         return $content;
     }
 
@@ -21,7 +30,8 @@ class NewsController extends Controller
 
     public function createNews(Request $request){
         $arrNews = $request->request->all()['news'];
-        $sql = (new Models\Admin\NewsModel())->addNews($arrNews['category'], $arrNews['title'], $arrNews['discription']);
+//        dd($arrNews);
+        $sql = (new Models\Admin\NewsModel())->addNews($arrNews['category'], $arrNews['title'], $arrNews['description'], $arrNews['source']);
         if ($sql){
             $content = view('admin/admin', ['message' => 'Новость опубликована', 'action'=> 1]);
         }

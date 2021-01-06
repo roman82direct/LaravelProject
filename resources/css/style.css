@@ -70,7 +70,12 @@ body {
 .great{
     font-size: 72px;
     text-align: center;
-    margin-top: 10%;
+    /*margin-top: 10%;*/
+}
+
+.admHeader{
+    color: black;!important;
+    font-weight: 800;
 }
 
 .categoryNews li{

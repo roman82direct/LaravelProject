@@ -19,18 +19,18 @@ class NewsController extends Controller {
     public function showNews($categoryId){
         $model = new Models\NewsModel();
         $sortNews = $model->getNewsByCategory($categoryId);
-        $catDiscription = $model->getOneCategory($categoryId)->value('title');
+        $catDescription = $model->getCategoryById($categoryId)->value('title');
         return view('news', [
             'sortNews' => $sortNews,
             'category_Id' => $categoryId,
-            'catDiscr'=>$catDiscription
+            'catDiscr'=>$catDescription
         ]);
     }
 
     public function showNewsItem($categoryId, $itemId){
         $model = new Models\NewsModel();
         $newsItemText = $model->getNewsById($itemId)->value('text');
-        $catTitle = $model->getOneCategory($categoryId)->value('title');
+        $catTitle = $model->getCategoryById($categoryId)->value('title');
         return view('newsItem', [
             'newsItem' => $newsItemText,
             'category'=>$catTitle,

@@ -9,10 +9,24 @@ use Illuminate\Support\Facades\DB;
 
 class NewsModel
 {
-    public function addNews($categoryId, $title, $text){
-        $sql = DB::insert('INSERT INTO `news`(`category_id`, `title`, `source_id`, `text`) VALUES (:categoryId, :title, 1, :txt)', [
+    public function addNews($categoryId, $title, $text, $source){
+        $sources = Models\Source::query()
+            ->where('title', $source);
+
+        if ($sources->value('id')){
+            $sourceId = $sources->value('id');
+        } else {
+            Models\Source::query()
+                ->insert(['title'=>$source]);
+
+            $sourceId = Models\Source::query()
+                ->where('title', $source)
+                ->value('id');
+        }
+        $sql = DB::insert('INSERT INTO `news`(`category_id`, `title`, `source_id`, `text`) VALUES (:categoryId, :title, :sourceId, :txt)', [
             'categoryId' => $categoryId,
             'title' => $title,
+            'sourceId' => $sourceId,
             'txt' => $text
         ]);
         return $sql;

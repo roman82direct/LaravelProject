@@ -27,8 +27,12 @@
 {{--            <input type="text" class="form-control" name="news[shortdiscr]" id="" placeholder="">--}}
         </div>
         <div class="form-group">
-            <label for="discription">Полный текст новости</label>
-            <textarea class="form-control" name="news[discription]" id="" rows="10"></textarea>
+            <label for="description">Полный текст новости</label>
+            <textarea class="form-control" name="news[description]" id="" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="title">Источник новости</label>
+            <input type="text" class="form-control" name="news[source]" id="" placeholder="">
         </div>
 
         <button type="submit" class="btn btn-primary">Опубликовать</button>
