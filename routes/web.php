@@ -31,18 +31,19 @@ Route::group([
     Route::get('/admin', 'NewsController@index')
         ->name('index');
 
-//Страница формы для добавления новости
-    Route::get('/addnews', 'NewsController@addNews')
-        ->name('addNews');
 //Страница результата добавления новости
-    Route::post('/addnews', 'NewsController@createNews')
+    Route::match(['get','post'], '/create', 'NewsController@createNews')
         ->name('createNews');
+
+    Route::match(['post'], '/save', 'NewsController@saveNews')
+        ->name('saveNews');
+
+    Route::get('/update/{id}', 'NewsController@updateNews')
+        ->name('updateNews');
+
 //Страница удаления новости
-    Route::get('/delnews', 'NewsController@deleteNews')
+    Route::get('/delete/{id}', 'NewsController@deleteNews')
         ->name('deleteNews');
-//Страница редактирования новости
-    Route::match(['GET', 'POST'], '/editnews', 'NewsController@editNews')
-        ->name('editNews');
 
 //  Открытие формы и создание новостной категории
     Route::match(['GET', 'POST'], '/addcategory', 'NewsController@createCategory')

@@ -40,14 +40,14 @@ class NewsController extends Controller {
     }
 
     public function downloadNews(Request $request){
-        if ($request->isMethod('get')){
-            return view('user/userSaveRequest', ['news_Id'=>$request->all()['news_id']]);
-        } else {
+        if ($request->isMethod('post')){
             $file = 'userdata/data.txt';
             file_put_contents($file, $request->all()['req']);
-            redirect()->route('welcome'); // не работает (как реализовать одновременное скачивание файла и редирект на другую страницу?)
+//            redirect()->route('welcome'); // не работает (как реализовать одновременное скачивание файла и редирект на другую страницу?)
 //            dd(response());
             return response()->download($file);
+        } else {
+            return view('user/userSaveRequest', ['news_Id'=>$request->all()['news_id']]);
         }
     }
 }

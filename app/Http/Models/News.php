@@ -29,6 +29,16 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
 
+    public static function createRules()
+    {
+        return [
+            'title' => 'required|min:5|max:255',
+            'category' => 'required',
+            'text' => 'required'
+        ];
+    }
+
+
     public function newsCategories(){
         return $this->belongsTo(NewsCategories::class);
     }
