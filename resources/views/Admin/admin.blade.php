@@ -21,25 +21,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h1>Новости</h1>
-            <p>
-                <a class="btn btn-success" href="{{route('admin::news::createNews')}}">
-                    Создать
-                </a>
-            </p>
+
+                <a style="margin-bottom: 10px" class="btn btn-success" href="{{route('admin::news::createNews')}}">Создать</a>
+
 
             <div class="list-group">
                 @forelse ($news as $item)
 
-                    <div href="#" class="list-group-item">
+                    <div class="list-group-item">
                         <h2>{{$item->title}}</h2>
-                        <p>
-                            <a class="btn btn-primary" href="{{route('admin::news::updateNews', ['id' => $item->id])}}">
-                                Изменить
-                            </a>
-                            <a class="btn btn-danger" href="{{route('admin::news::deleteNews', ['id' => $item->id])}}">
-                                Удалить
-                            </a>
-                        </p>
+                        <p>Категория новостей: {{\App\Http\Models\NewsCategories::find($item->category_id)->title}}</p>
+                            <a style="margin-bottom: 10px" class="btn btn-primary" href="{{route('admin::news::updateNews', ['id' => $item->id])}}">Изменить</a>
+                            <a style="margin-bottom: 10px" class="btn btn-danger" href="{{route('admin::news::deleteNews', ['id' => $item->id])}}">Удалить</a>
 
                     </div>
 

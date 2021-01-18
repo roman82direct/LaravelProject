@@ -31,15 +31,7 @@ class NewsController extends Controller
     public function saveNews(Request $request)
     {
         $this->validate($request, News::createRules());
-
-        $id = $request->post('id');
-        $model = $id ? News::find($id) : new News();
-        $model->fill([
-            "title" => $request->post('title'),
-            "category_id" => NewsCategories::whereTitle($request->post('category'))->value('id'),
-            "text" => $request->post('text'),
-            "source_id" => Source::whereTitle($request->post('source'))->value('id')
-        ])->save();
+        $model = (new Models\Admin\NewsModel())->saveNews($request);
         return redirect()->route("admin::news::updateNews", ['id' => $model->id])
             ->with('success', "Данные сохранены");
     }
