@@ -23,7 +23,7 @@ class NewsController extends Controller
 //        dd($item->text);
 
 
-        $news = Models\News::query()
+        $news = News::query()
             ->orderBy('updated_at', 'desc')
             ->paginate(5);
         return view('admin/admin', ['news' => $news]);
@@ -31,7 +31,7 @@ class NewsController extends Controller
 
     public function createNews(){
         return view("admin/adminaddNews", [
-                'model' => new Models\News(),
+                'model' => new News(),
                 'id'=>'',
                 'categories' => $this->getCategoriesList()
             ]);
@@ -39,37 +39,24 @@ class NewsController extends Controller
 
     public function saveNews(Request $request)
     {
-        $this->validate($request, Models\News::createRules());
-
-        $catId = NewsCategories::whereTitle($request->post('category'))->value('id');
-        $sourceId = Source::whereTitle($request->post('source'))->value('id');
+        $this->validate($request, News::createRules());
 
         $id = $request->post('id');
-        $model = $id ? News::find($id) : new Models\News();
+        $model = $id ? News::find($id) : new News();
         $model->fill([
             "title" => $request->post('title'),
-            "category_id" => $catId,
+            "category_id" => NewsCategories::whereTitle($request->post('category'))->value('id'),
             "text" => $request->post('text'),
-            "source_id" => $sourceId
+            "source_id" => Source::whereTitle($request->post('source'))->value('id')
         ])->save();
-
         return redirect()->route("admin::news::updateNews", ['id' => $model->id])
             ->with('success', "Данные сохранены");
     }
 
-    public function updateNews($id){
-        $news = Models\News::query()
-            ->where('id', $id)
-            ->value('category_id');
-        $catTitle = Models\NewsCategories::query()
-            ->where('id', $news)
-            ->value('title');
-
+    public function updateNews($id)
+    {
         return view("admin/adminaddNews", [
-                'model' => Models\News::query()
-                ->where('id', $id),
-                'id'=>$id,
-                'catTitle' => $catTitle,
+                'model' => News::find($id),
                 'categories' => $this->getCategoriesList()
             ]
         );
