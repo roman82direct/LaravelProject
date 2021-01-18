@@ -14,15 +14,6 @@ use App\Http\Models\Source;
 class NewsController extends Controller
 {
     public function index(){
-//        $news = new Models\News();
-//        dd(Models\News::find(13)->title);
-
-//        $news->fill(['category_id'=>1, 'title'=>'Title', 'text'=>'hzscbvhgvhgzsvchg'])
-//        ->save();
-//        $item = Models\News::find(2);
-//        dd($item->text);
-
-
         $news = News::query()
             ->orderBy('updated_at', 'desc')
             ->paginate(5);
