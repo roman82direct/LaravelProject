@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategories newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategories newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategories query()
+ * @method static \Illuminate\Database\Eloquent\Builder|NewsCategories find()
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategories whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategories whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategories whereId($value)

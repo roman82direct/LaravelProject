@@ -32,6 +32,9 @@ class NewsModel
         return $sql;
     }
 
+    public function saveNews(){
+    }
+
     public function editNews($newsId, $title, $text){
         $news = News::query()                       //Eloquent ORM
             ->where('id', $newsId)

@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use App\Http\Models;
+//use Illuminate\Foundation\Testing\TestCase;
 
 class GetNewsByIdTest extends TestCase
 
