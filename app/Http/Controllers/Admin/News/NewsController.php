@@ -7,12 +7,24 @@ use App\Http\Requests\AdminNewsSaveReq;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use App\Http\Models;
+use App\Http\Models\News;
+use App\Http\Models\NewsCategories;
+use App\Http\Models\Source;
 
 class NewsController extends Controller
 {
     public function index(){
+//        $news = new Models\News();
+//        dd(Models\News::find(13)->title);
+
+//        $news->fill(['category_id'=>1, 'title'=>'Title', 'text'=>'hzscbvhgvhgzsvchg'])
+//        ->save();
+//        $item = Models\News::find(2);
+//        dd($item->text);
+
+
         $news = Models\News::query()
-            ->orderBy('id', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->paginate(5);
         return view('admin/admin', ['news' => $news]);
     }
@@ -25,45 +37,23 @@ class NewsController extends Controller
             ]);
     }
 
-    public function saveNews(Request $request){
+    public function saveNews(Request $request)
+    {
         $this->validate($request, Models\News::createRules());
 
+        $catId = NewsCategories::whereTitle($request->post('category'))->value('id');
+        $sourceId = Source::whereTitle($request->post('source'))->value('id');
+
         $id = $request->post('id');
-        $catId = Models\NewsCategories::query()
-            ->where('title', $request->post('category'))
-            ->value('id');
-        $source = Models\Source::query()
-            ->where('title', $request->post('source'))
-            ->value('id');
-        if(!is_null($source)){
-            $sourceId = $source;
-        } else {
-          Models\Source::query()
-              ->insert(['title'=>$request->post('source')]);
-          $sourceId = Models\Source::query()
-              ->where('title', $request->post('source'))
-              ->value('id');
-        }
-            if (!is_null($id)){
-                Models\News::query()->where('id', $id)
-                    ->update([
-                        'category_id'=>$catId,
-                        'title'=>$request->post('title'),
-                        'text'=>$request->post('text'),
-                        'source_id'=>$sourceId
-                    ]);
-                $model = Models\News::query()->where('title', $request->post('title'));
-            } else {
-                Models\News::query()
-                    ->insert([
-                        'category_id'=>$catId,
-                        'title'=>$request->post('title'),
-                        'text'=>$request->post('text'),
-                        'source_id'=>$sourceId
-                    ]);
-                $model = Models\News::query()->where('title', $request->post('title'));
-            }
-        return redirect()->route("admin::news::updateNews", ['id' => $model->value('id')])
+        $model = $id ? News::find($id) : new Models\News();
+        $model->fill([
+            "title" => $request->post('title'),
+            "category_id" => $catId,
+            "text" => $request->post('text'),
+            "source_id" => $sourceId
+        ])->save();
+
+        return redirect()->route("admin::news::updateNews", ['id' => $model->id])
             ->with('success', "Данные сохранены");
     }
 
@@ -88,18 +78,18 @@ class NewsController extends Controller
     public function deleteNews($id)
     {
         Models\News::destroy([$id]);
-//        return view('admin/admin', ['news' => $news]);
         return redirect()->route("admin::news::index")
             ->with('success', "Данные удалены");
     }
 
     public function createCategory(Request $request){
-        if ($request->isMethod('GET')){
-            return view('admin/adminAddCategory');
-        } else {
+        if ($request->isMethod('POST')){
             $newCat = $request->all();
             (new Models\Admin\NewsModel())->addCategory($newCat['title'], $newCat['discr']);
-            return view('admin/admin', ['message' => 'Категория "'.$newCat['title'].'" успешно добавлена', 'action' => 1]);
+            return redirect()->route("admin::news::index")
+                ->with('success', "Новая категория новостей сохранена");
+        } else {
+            return view('admin/adminAddCategory');
         }
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/', [
     'uses' => '\App\Http\Controllers\NewsController@welcome',
@@ -73,3 +74,7 @@ Route::get('/categories/category_{categoryId}/item_{itemId}', '\App\Http\Control
  //    ->where('itemId', '[0-9]+');;
 
 Route::get('/db', '\App\Http\Controllers\DbController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

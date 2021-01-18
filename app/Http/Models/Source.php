@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Source newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Source newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Source query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Source find()
+ * @method static \Illuminate\Database\Eloquent\Builder|Source fill()
  * @method static \Illuminate\Database\Eloquent\Builder|Source whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Source whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Source whereId($value)

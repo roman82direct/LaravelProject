@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|News whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|News find($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereSourceId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereTitle($value)
@@ -28,7 +29,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class News extends Model
 {
-
+    protected $fillable = [
+        'id',
+        'category_id',
+        'title',
+        'text',
+        'source_id',
+        'created_at',
+        'updated_at'
+    ];
     public static function createRules()
     {
         return [

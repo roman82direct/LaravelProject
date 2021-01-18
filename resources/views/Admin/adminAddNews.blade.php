@@ -37,7 +37,7 @@
                     <input type="hidden" name="id" value="{{$id ?? ''}}">
                 <div class="form-group">
                     <label for="title">Название новости</label>
-                    <input type="text" class="form-control" name="title" value="{{$model->value('title') ?? ''}}" placeholder="">
+                    <input type="text" class="form-control" name="title" value="{{$model->value('title') ?? old('title')}}">
                     @error('title')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

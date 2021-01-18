@@ -32,6 +32,36 @@ class NewsModel
         return $sql;
     }
 
+    public function saveNews($id, $caregoryTxt, $sourceTxt){
+
+        $catId = Models\NewsCategories::find('title', $caregoryTxt)->id;
+        $source = Models\Source::find('title', $sourceTxt)->id;
+        if(!is_null($source)){
+            $sourceId = $source;
+        } else {
+            Models\Source::fill(['title'=>$sourceTxt])->save();
+            $sourceId = Models\Source::find('title', $sourceTxt)->id;
+        }
+        if (!is_null($id)){
+            $title = News::find($id)->title;
+            $text = News::find(($id))->text;
+            $model = News::find($id)->fill([
+                'category_id'=>$catId,
+                'title'=>$title,
+                'text'=>$text,
+                'source_id'=>$sourceId
+            ])->save();
+        } else {
+            $model = News::fill([
+                    'category_id'=>$catId,
+                    'title'=>$title,
+                    'text'=>$text,
+                    'source_id'=>$sourceId
+                ])->save();
+        }
+        return $model;
+    }
+
     public function editNews($newsId, $title, $text){
         $news = News::query()                       //Eloquent ORM
             ->where('id', $newsId)
