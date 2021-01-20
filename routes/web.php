@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,21 +29,22 @@ Route::group([
     'as' => 'admin::news::',
     'namespace' => '\App\Http\Controllers\Admin\News'
 ], function () {
-    Route::get('/admin', 'NewsController@index')
+    Route::get('/', 'NewsController@index')
         ->name('index');
 
-//Страница формы для добавления новости
-    Route::get('/addnews', 'NewsController@addNews')
-        ->name('addNews');
 //Страница результата добавления новости
-    Route::post('/addnews', 'NewsController@createNews')
+    Route::match(['get','post'], '/create', 'NewsController@createNews')
         ->name('createNews');
+
+    Route::match(['post'], '/save', 'NewsController@saveNews')
+        ->name('saveNews');
+
+    Route::get('/update/{id}', 'NewsController@updateNews')
+        ->name('updateNews');
+
 //Страница удаления новости
-    Route::get('/delnews', 'NewsController@deleteNews')
+    Route::get('/delete/{id}', 'NewsController@deleteNews')
         ->name('deleteNews');
-//Страница редактирования новости
-    Route::match(['GET', 'POST'], '/editnews', 'NewsController@editNews')
-        ->name('editNews');
 
 //  Открытие формы и создание новостной категории
     Route::match(['GET', 'POST'], '/addcategory', 'NewsController@createCategory')
@@ -72,3 +74,14 @@ Route::get('/categories/category_{categoryId}/item_{itemId}', '\App\Http\Control
  //    ->where('itemId', '[0-9]+');;
 
 Route::get('/db', '\App\Http\Controllers\DbController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')
+    ->name('home');
+
+//Route::get('login', '\App\Http\Controllers\Auth\LoginController@showLoginForm')
+//    ->name('login');
+//Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
+//Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')
+//    ->name('logout');
